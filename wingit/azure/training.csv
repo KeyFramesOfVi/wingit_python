@@ -1,0 +1,15 @@
+American,French,Italian,Spanish,Indian,Asian,Day,Time,Target
+0.78,0.44,0.67,0.86,0.32,0.91, Monday, 7, Spanish
+0.78,0.44,0.67,0.86,0.32,0.61, Tuesday, 6, Italian
+0.88,0.44,0.67,0.86,0.32,0.61, Wednesday, 7, American 
+0.88,0.44,0.67,0.96,0.32,0.61, Thursday, 9, Italian
+0.88,0.44,0.47,0.96,0.32,0.61, Friday, 8, French
+0.88,0.64,0.47,0.96,0.32,0.61, Saturday, 11, Spanish
+0.88,0.64,0.47,0.96,0.32,0.71, Sunday, 6, American
+0.68,0.64,0.47,0.96,0.32,0.71, Monday, 7, Indian
+0.68, 0.64, 0.47, 0.96, 0.52, 0.71, Tuesday, 9, Asian
+0.68, 0.64, 0.47, 0.96, 0.52, 0.81, Wednesday, 9, Italian
+0.68, 0.64, 0.47, 0.86, 0.52, 0.71, Thursday, 9, French
+0.68, 0.74, 0.47, 0.96, 0.52, 0.71, Friday, 9, American
+0.78, 0.64, 0.47, 0.96, 0.52, 0.71, Saturday, 9, Asian
+

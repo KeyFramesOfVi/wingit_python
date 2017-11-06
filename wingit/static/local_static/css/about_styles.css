@@ -1,0 +1,58 @@
+.team{
+	padding: 150px 0px;
+  background-color: #222222;
+  background-image: url('../img/magical-sky.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+h2.section-heading {
+	font-family: 'Montserrat',sans-serif;
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+h3.section-subheading{
+	font-size:16px;
+	font-style: italic;
+}
+
+.team-member{
+	font-family: 'Montserrat',sans-serif;
+	text-align: center;
+}
+
+.team-member img{
+	margin: 0px auto;
+	border: 7px solid white;
+}
+
+.position{
+  color:#222222;
+  font-style: italic;
+}
+
+ul.social-buttons {
+  margin-bottom: 0;
+}
+ul.social-buttons li a {
+  display: block;
+  background-color: #222222;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  font-size: 20px;
+  line-height: 40px;
+  color: white;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+ul.social-buttons li a:hover,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:active {
+  background-color: #353773;
+}

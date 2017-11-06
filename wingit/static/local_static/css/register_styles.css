@@ -1,0 +1,13 @@
+.register{
+	background-image: url('../img/bg.gif');
+	background-position: center;
+	background-repeat: no-repeat;
+	padding-top:150px;
+	padding-bottom:100px;
+}
+
+h1{
+	font-family: "Montserrat", sans-serif;
+	text-transform: uppercase;
+	font-weight: 700;
+}

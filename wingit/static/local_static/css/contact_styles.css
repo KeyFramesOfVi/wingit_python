@@ -1,0 +1,18 @@
+.contact {
+  background-color: #222222;
+  background-image: url('../img/flowers.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.contact-form{
+	padding-top:150px;
+	padding-bottom:100px;
+}
+
+h1{
+	font-family:"Montserrat",sans-serif;
+	text-transform: uppercase;
+	font-weight:700;
+	font-size: 36px;
+}

@@ -1,0 +1,88 @@
+/*Navbar Styling*/
+.navbar-default {
+  background-color: #222222;
+  border-color: transparent;
+  font-family:'Montserrat', sans-serif;
+  padding: 10px 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #FFFFFF;
+	letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.navbar-default .navbar-brand{
+	/*color: #353773;*/	
+  /*color:#b96aff;
+  font-family: 'Dancing Script';
+	font-size: 3em;
+	font-style: italic;*/
+  padding: 0 0;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:active,
+.navbar-default .navbar-brand.active{
+	/*color:#6458b2;
+	background-color: transparent;*/
+}
+
+.navbar-default .navbar-collapse {
+  border-color: rgba(255, 255, 255, 0.02);
+}
+
+.navbar-default .navbar-toggle {
+  background-color: #353773;
+  border-color: #353773;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #353773;
+}
+
+.navbar-default .nav li a:hover,
+.navbar-default .nav li a:focus {
+  color: #353773;
+  outline: none;
+}
+
+.navbar-default .navbar-nav > .active > a {
+  border-radius: 0;
+  color: white;
+  background-color: #353773;
+}
+
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: white;
+  background-color: #6458b2;
+}
+
+.navbar-fixed-bottom{
+	background-color: #F6F3F3;
+	padding:0 0;
+}
+
+.navbar-fixed-bottom p,
+.navbar-fixed-bottom .navbar-text a{
+	color:#353773;
+}
+
+.navbar-fixed-bottom .navbar-text a:hover,
+.navbar-fixed-bottom .navbar-text a:focus{
+	color:#6458b2;
+}
+
+
+
+/*Colors Used*/
+/*Dark Purple: #353773 */
+/*Light Purple: #6458b2 */
+/*Yellow Button Outline: #f6bf01 */

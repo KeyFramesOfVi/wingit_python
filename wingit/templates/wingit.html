@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title %}Wingit!{% endblock %}
+
+{% block css %}
+<link href="{% static 'css/custom_styles.css' %}" rel="stylesheet">
+{% endblock %}
+
+<style>
+{% block style %}
+	p,h5,h4,h3,h2,h1{
+		color:#353773;
+		font-family: 'Montserrat';	
+	}
+
+	.results{
+		margin-top: 10px;
+	}
+
+	.like{
+		display:inline-block;
+		text-align:center;
+	}
+
+{% endblock %}
+</style>
+
+{% block content %}
+
+<div class="container">
+	<form method='POST' action=''>{% csrf_token %}
+
+		<div class="row">
+			<div class="col-md-6">
+				<h4>Categories</h4>
+				<div class="btn-group" data-toggle="buttons">
+					<label class="btn btn-activity {%if cat == "restaurant" %}active{%endif%}" data-toggle="tooltip" data-placement="top" title="Lunch/Dinner">
+						<i class="fa fa-cutlery" aria-hidden="true"></i>
+						<input type="radio" name="category" id="id_category1" autocomplete="off" value="restaurant" {% if cat == "restaurant" %}checked{%endif%}>
+					</label>
+					<label class="btn btn-activity {%if cat == "bar" %}active{%endif%}" data-toggle="tooltip" data-placement="top" title="Bars">
+						<i class="fa fa-glass" aria-hidden="true"></i>
+						<input type="radio" name="category" id="id_category2" autocomplete="off" value="bar" {% if cat == "bar" %}checked{%endif%}>
+					</label>
+					<label class="btn btn-activity {%if cat == "cafe" %}active{%endif%}" data-toggle="tooltip" data-placement="top" title="Cafés">
+						<i class="fa fa-coffee" aria-hidden="true"></i>
+						<input type="radio" name="category" id="id_category3" autocomplete="off" value="cafe" {% if cat == "cafe" %}checked{%endif%}>
+					</label>
+				</div>
+
+
+				<div class="btn-group" data-toggle="buttons">
+					<label class="btn btn-activity btn-disabled" disabled data-toggle="tooltip" data-placement="top" title="Coming Soon">
+						<i class="fa fa-film" aria-hidden="true"></i>
+						<input type="radio" name="category" id="id_category4" autocomplete="off" value="bar">
+					</label>
+
+					<label class="btn btn-activity btn-disabled" disabled data-toggle="tooltip" data-placement="top" title="Coming Soon">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+						<input type="radio" name="category" id="id_category5" autocomplete="off" value="bar">
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-md-3">
+				<button class="btn btn-filter" type="button" data-toggle="collapse" data-target="#Filters" aria-expanded="false" aria-controls="collapseExample">
+						Filters
+				</button>
+			</div>
+		</div>
+
+
+		<div class="collapse" id="Filters">
+			<div class="row">
+				<div class="col-md-3 col-sm-12">
+					<h4>Price</h4>
+					<div class="btn-group" data-toggle="buttons">
+						<label class="btn btn-filter {%if price == "1" %}active{%endif%}" data-toggle="tooltip" data-placement="top" title="Inexpensive">
+							<input type="radio" name="price" id="id_price1" value="1" {%if price == "1" %}checked{%endif%}> $
+						</label>
+						<label class="btn btn-filter {%if price == "2" %}active{%endif%}" data-toggle="tooltip" data-placement="top" title="Moderate">
+							<input type="radio" name="price" id="id_price2" value="2" {%if price == "2" %}checked{%endif%}> $$
+						</label>
+						<label class="btn btn-filter {%if price == "3" %}active{%endif%}" data-toggle="tooltip" data-placement="top" title="Decent">
+							<input type="radio" name="price" id="id_price3" value="3" {%if price == "3" %}checked{%endif%}> $$$
+						</label>
+						<label class="btn btn-filter {%if price == "4" %}active{%endif%}" data-toggle="tooltip" data-placement="top" title="nope">
+							<input type="radio" name="price" id="id_price4" value="4" {%if price == "4" %}checked{%endif%}"> $$$$
+						</label>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-sm-12">
+					<h4>Location</h4>
+					<div class="btn-group" data-toggle="buttons">
+						<label class="btn btn-filter {% if loc == "Current" %}active{%endif%}" data-toggle="tooltip" data-placement="top" title="">
+				    		<input type="radio" name="location" id="id_location1" autocomplete="off" value="Current"><i class="fa fa-location-arrow" aria-hidden="true" {%if loc == "Current" %}checked{%endif%}></i>
+				  		</label>
+						<label class="btn btn-filter {% if loc == "Uptown" %}active{%endif%}" data-toggle="tooltip" data-placement="top" title="">
+				    		<input type="radio" name="location" id="id_location2" autocomplete="off" value="Uptown" {%if loc == "Uptown" %}checked{%endif%}>Uptown
+				  		</label>
+				  		<label class="btn btn-filter {% if loc == "Midtown" %}active{%endif%}" data-toggle="tooltip" data-placement="top" title="">
+				    		<input type="radio" name="location" id="id_location3" autocomplete="off" value="Midtown" {%if loc == "Midtown" %}checked{%endif%}>Midtown
+				  		</label>
+				  		<label class="btn btn-filter {% if loc == "Downtown" %}active{%endif%}" data-toggle="tooltip" data-placement="top" title="">
+				    		<input type="radio" name="location" id="id_location4" autocomplete="off" value="Downtown" {%if loc == "Downtown" %}checked{%endif%}>Downtown
+				  		</label>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		{% if displayResults == True %}
+
+			<!-- Results -->
+			<div class="container results">
+				<div class="row">
+					<div class="col-md-4"></div>
+					<div class="primary col-md-4">
+						<a target="_blank" href="https://www.google.com/maps/search/{{places.0.0}}/@{{places.0.2}},15z" class="thumbnail">
+							{% if displayPhoto == True %}
+							<img src="{{photourl}}" alt="Main Result">
+							
+							{% else %}
+							<img src="{% static 'img/default/sample.png' %}" alt="Main Result">
+							{% endif %}
+						</a>
+
+						<!--<a href="https://www.google.com/maps/place/{{places.0.0}}/@{{places.0.2}},15z" class="thumbnail">
+							<img src="{{photourl}}" alt="Main Result">
+						</a>-->
+						
+						<h2 class="lead text-center">{{places.0.0}}</h2>
+						<h2 class="lead text-center">{{places.0.1}}</h2>
+					</div>
+					<div class="col-md-4"></div>		
+				</div>
+
+			</div>
+
+			<input type="hidden" name="reroll" value="True">
+			<hr>
+
+			<h5 class="text-center">Don't like what you see? Try rolling again!</h5>
+		{%endif%}
+
+		<input class='btn btn-wingit' type='submit' value='Wing it!'>
+
+
+	</form>
+</div>
+
+
+{% endblock %}

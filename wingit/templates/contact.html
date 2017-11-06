@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title %}{{block.super}} | Contact{% endblock %}
+
+{% block css %}
+<link href="{% static 'css/contact_styles.css' %}" rel="stylesheet">
+<link href="{% static 'css/sexy_navbar.css' %}" rel="stylesheet">
+{% endblock %}
+
+<style>
+	{% block style %}
+		
+	{% endblock %}
+</style>
+
+{% block content %}
+<div class= "container-fluid contact">
+	<div class= "contact-form">
+		<div class="row">
+			<div class='col-sm-6 col-sm-offset-3'>
+				<h1>Contact Us</h1>
+				<form method='POST' action='/'>{% csrf_token %}
+					{{ form | crispy}}
+					<input class='btn btn-block btn-submit' type='submit' value='SUBMIT'/>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

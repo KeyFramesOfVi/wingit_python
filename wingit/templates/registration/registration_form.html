@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title %}{{block.super}} | Register{% endblock %}
+
+{% block css %}
+<link href="{% static 'css/sexy_navbar.css' %}" rel="stylesheet">
+<link href="{% static 'css/register_styles.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid register"> 
+	<div class='row'>
+		<div class='col-sm-6 col-sm-offset-3'>
+			<h1>Register!</h1>
+			<form method="post" action=".">
+	 		 	{% csrf_token %}
+	  			{{ form|crispy }}
+
+	  		<input class='btn btn-block btn-submit' type="submit" value="{% trans 'JOIN' %}" />
+			</form>
+		</div>
+	</div>
+
+	<div class='row'>
+		<div class='col-sm-6 col-sm-offset-3 text-align-center'>
+			<p>Already a member? <a href="{% url 'auth_login' %}">Login</a>?</p>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

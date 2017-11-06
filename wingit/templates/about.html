@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %} {{ block.super }} | About {% endblock %}
+
+{% block css %}
+<link href="{% static 'css/about_styles.css' %}" rel="stylesheet">
+<link href="{% static 'css/sexy_navbar.css' %}" rel="stylesheet">
+{% endblock %}
+
+<style>
+{% block style %}
+
+
+{% endblock %}
+</style>
+
+{% block content %}
+<div class="container-fluid team">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2 class="section-heading">Meet the Team</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-2">
+            <div class="team-member">
+                <img src="{% static 'img/team/Rosie.jpg' %}" class="img-responsive img-circle" alt="">
+                <h4>Rosie Waleleng</h4>
+                <p class="position">Front End Dev</p>
+                <ul class="list-inline social-buttons">
+                    <li><a href="https://www.linkedin.com/in/roselline-waleleng-ab6313b6"><i class="fa fa-linkedin"></i></a>
+    				</li>
+                    <li><a href="https://github.com/rosiewaleleng"><i class="fa fa-github"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-2"></div>
+
+        <div class="col-md-2">
+            <div class="team-member">
+                <img src="{% static 'img/team/Karan.jpg' %}" class="img-responsive img-circle" alt="">
+                <h4>Karan Boodwa</h4>
+                <p class="position">Full Stack Engineer</p>
+                <ul class="list-inline social-buttons">
+                    <li><a href="https://www.linkedin.com/in/karanboodwa"><i class="fa fa-linkedin"></i></a>
+    				</li>
+                    <li><a href="https://github.com/kurryb"><i class="fa fa-github"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <div class="team-member">
+                <img src="{% static 'img/team/Manuel.jpg' %}" class="img-responsive img-circle" alt="">
+                <h4>Manuel Grullon</h4>
+                <p class="position">Mobile Dev</p>
+                <ul class="list-inline social-buttons">
+                    <li><a href="https://www.linkedin.com/profile/view?id=345449432"><i class="fa fa-linkedin"></i></a>
+    				</li>
+                    <li><a href="https://github.com/mangrullon"><i class="fa fa-github"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-1"></div>
+
+        <div class="col-md-2">
+            <div class="team-member">
+                <img src="{% static 'img/team/Victor.jpg' %}" class="img-responsive img-circle" alt="">
+                <h4>Victor Cabrera</h4>
+                <p class="position">Data Scientist</p>
+                <ul class="list-inline social-buttons">
+                    <li><a href="https://www.linkedin.com/in/victor-cabrera-4a101abb"><i class="fa fa-linkedin"></i></a>
+    				</li>
+                    <li><a href="https://github.com/Victor-Cabrera"><i class="fa fa-github"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-1"></div>
+
+        <div class="col-md-2">
+            <div class="team-member">
+                <img src="{% static 'img/team/Gabe.jpg' %}" class="img-responsive img-circle" alt="">
+                <h4>Gabe Chai</h4>
+                <p class="position">DevOps Engineer</p>
+                <ul class="list-inline social-buttons">
+                    <li><a href="https://www.linkedin.com/in/gchai"><i class="fa fa-linkedin"></i></a>
+    				</li>
+                    <li><a href="https://github.com/gchai"><i class="fa fa-github"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+	
+{% endblock %}
+
+<!-- Linkedins -->
+<!-- Manny Linkedin: https://www.linkedin.com/profile/view?id=345449432 -->
+<!-- Karan Boodwa: www.linkedin.com/in/karanboodwa -->
+<!-- Victor Cabrera: https://www.linkedin.com/in/victor-cabrera-4a101abb -->
+<!-- https://www.linkedin.com/in/roselline-waleleng-ab6313b6 -->
+<!-- https://www.linkedin.com/in/gchai -->

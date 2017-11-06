@@ -1,0 +1,39 @@
+    import urllib2
+# If you are using Python 3+, import urllib instead of urllib2
+
+import json 
+
+data =  {
+            "Resources": [
+                {
+                    "Name": "Wingit - Non User Dinner Net (Training) [trained model]",
+                    "Location": 
+                        {
+                            # Replace these values with the ones that specify the location of the new value for this resource. For instance,
+                            # if this resource is a trained model, you must first execute the training web service, using the Batch Execution API,
+                            # to generate the new trained model. The location of the new trained model would be returned as the "Result" object
+                            # in the response. 
+                            "BaseLocation": "https://wingitapp.blob.core.windows.net/",
+                            "RelativeLocation": "dinner/training_non_userresults.ilearner",
+                            "SasBlobToken": "?sv=2015-02-21&sr=b&sig=f%2F6ZYBI6hkTblDQl%2B4WxQkFcnemSSFLP3mY7F8%2BSPAI%3D&st=2016-05-25T06%3A50%3A26Z&se=2016-05-26T06%3A55%3A26Z&sp=r"
+                        }
+                }
+            ]
+        }
+
+body = str.encode(json.dumps(data))
+
+url = "https://management.azureml.net/workspaces/13a9ddfe79eb4f84bab53d2d78a0fefa/webservices/82fd2fb66add49f9868fd8df4c34a632/endpoints/nonuser"
+api_key = "y4UqknkIqFGOefzOtlRR/jFzyWD3OBBNvhh91yS5sE9G9C+YvxM9PDbE7RFTHGU3MTQDBbqTHi75Q8m+OnxnDA==" # Replace this with the API key for the web service
+headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
+
+req = urllib2.Request(url, body, headers)
+req.get_method = lambda: 'PATCH'
+response = urllib2.urlopen(req)
+
+# If you are using Python 3+, replace urllib2 with urllib.request in the above code:
+# req = urllib.request.Request(url, body, headers) 
+# response = urllib.request.urlopen(req)
+
+result = response.read()
+print(result) 

@@ -1,0 +1,216 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Wingit | Analytics</title>
+
+    <!-- CSS Files -->
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/navbar_styles.css' %}" rel="stylesheet">
+
+    <!-- Font Awesome! -->
+    <script src="https://use.fontawesome.com/76d70f9f86.js"></script>
+
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+
+    
+    <link href="{% static 'css/custom_styles.css' %}" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{% static 'img/icons/favicon.ico' %}">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/icons/apple-touch-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'img/icons/apple-touch-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/icons/apple-touch-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/icons/apple-touch-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/icons/apple-touch-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/icons/apple-touch-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/icons/apple-touch-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/icons/apple-touch-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/icons/apple-touch-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'img/icons/favicon-32x32.png' %}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{% static 'img/icons/android-chrome-192x192.png' %}" sizes="192x192">
+    <link rel="icon" type="image/png" href="{% static 'img/icons/favicon-96x96.png' %}" sizes="96x96">
+    <link rel="icon" type="image/png" href="{% static 'img/icons/favicon-16x16.png' %}" sizes="16x16">
+    <link rel="manifest" href="{% static 'img/icons/manifest.json' %}">
+    <link rel="mask-icon" href="{% static 'img/icons/safari-pinned-tab.svg' %}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="{% static 'img/icons/mstile-144x144.png' %}">
+    <meta name="msapplication-config" content="{% static 'img/icons/browserconfig.xml' %}">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Analytics scripts -->
+    <script src="{% static 'js/Chart.js' %}"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    
+    <style>
+        #canvas{
+            height: 400px;
+            width: 400px;
+        }
+    </style>
+
+  </head>
+
+
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'home'%}">Wingit</a>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden"><a href="#page-top"></a></li>
+                    
+                    <li><a href="{% url 'home' %}">Home</a>
+                    <li><a href="{% url 'wingit' %}">Wing it!</a>
+                    <li><a href="{% url 'about' %}">The Team</a>
+                    <li><a href="{% url 'contact' %}">Contact</a>
+
+                    {% if request.user.is_authenticated  %}
+                        <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'registration_register' %}">Sign up</a></li>
+                        <li><a href="{% url 'auth_login' %}">Login</a></li>
+                    {% endif %}
+                </ul>   
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <canvas id="canvas"></canvas>
+    </div>
+    <script>
+        var randomScalingFactor = function() {
+            return Math.round(Math.random() * 100);
+        };
+        var randomColorFactor = function() {
+            return Math.round(Math.random() * 255);
+        };
+        var randomColor = function(opacity) {
+            return 'rgba(' + randomColorFactor() + ',' + randomColorFactor() + ',' + randomColorFactor() + ',' + (opacity || '.3') + ')';
+        };
+
+        var config = {
+            type: 'radar',
+            data: {
+                labels: ["American", "French", "Italian", "Spanish", "Indian", "Asian"],
+                datasets: [
+                    {
+                        label: "Karan",
+                        backgroundColor: "rgba(220,220,220,0.2)",
+                        pointBackgroundColor: "rgba(220,220,220,1)",
+                        data: [
+                                randomScalingFactor(), 
+                                randomScalingFactor(), 
+                                randomScalingFactor(), 
+                                randomScalingFactor(), 
+                                randomScalingFactor(), 
+                                randomScalingFactor(), 
+                            ]
+                    }, 
+
+                    {
+                        label: 'Hidden dataset',
+                        hidden: true,
+                        data: [
+                                randomScalingFactor(), 
+                                randomScalingFactor(), 
+                                randomScalingFactor(), 
+                                randomScalingFactor(), 
+                                randomScalingFactor(), 
+                                randomScalingFactor(), 
+                            ],
+                    }, 
+                    
+                    {
+                        label: "My Second dataset",
+                        backgroundColor: "rgba(151,187,205,0.2)",
+                        pointBackgroundColor: "rgba(151,187,205,1)",
+                        hoverPointBackgroundColor: "#fff",
+                        pointHighlightStroke: "rgba(151,187,205,1)",
+                        data: [
+                                randomScalingFactor(), 
+                                randomScalingFactor(), 
+                                randomScalingFactor(), 
+                                randomScalingFactor(), 
+                                randomScalingFactor(), 
+                                randomScalingFactor(), 
+                            ]
+                    },
+                ]
+            },
+
+            options: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Wingit Dinner Data'
+                },
+                scale: {
+                  reverse: false,
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }
+            }
+        };
+
+        window.onload = function() {
+            window.myRadar = new Chart(document.getElementById("canvas"), config);
+        };
+    </script>
+
+    <footer>
+        <div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <div class="container">
+                <div class="navbar-text pull-right">
+                    <p>&copy;Wingit 2016</p>
+                </div>
+                <div class="navbar-text pull-left">
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Tooltip -->
+    <script type="text/javascript">
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    </script>
+    <script src="{% static 'js/classie.js' %}"></script>
+    <script src="{% static 'js/cbpAnimatedHeader.js' %}"></script>
+
+    <script src="{% static 'js/scroll.js' %}"></script>
+
+    <!-- Analytics -->
+
+  </body>
+</html>

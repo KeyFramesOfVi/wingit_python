@@ -1,0 +1,14 @@
+body{
+	padding-top: 100px;
+}
+
+article{
+	text-align:center;
+	font-family: 'Montserrat', sans-serif;
+	color:#353773; 
+}
+
+.page-header{
+	color:#353773;
+	font-family: 'Montserrat', sans-serif;
+}

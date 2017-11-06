@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+<style>
+{% block style %}
+	p{
+		text-align: center;
+		color:#925375;
+	}
+{% endblock %}
+</style>
+
+{% block content %}
+<p class='lead'>{% trans "Your account is now activated." %}</p>
+{% endblock %}

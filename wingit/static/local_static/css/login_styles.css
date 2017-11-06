@@ -1,0 +1,13 @@
+h1{
+	font-family: "Montserrat",  sans-serif;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.login{
+	padding: 150px 0px;
+	background-color: #222222;
+  	background-image: url('../img/bar.gif');
+  	background-position: center;
+  	background-repeat: no-repeat;
+}

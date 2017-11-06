@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "415618531095",
+    "project_id": "wingitest2"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415618531095:android:eeb998ffe8b0d506",
+        "android_client_info": {
+          "package_name": "com.example.manuel.wingittest2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415618531095-tjtuqf277u6oqnt55dahdvvdsn862bsm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.manuel.wingittest2",
+            "certificate_hash": "D54A28FB3302E030660478EE4F57DC3FA57A104D"
+          }
+        },
+        {
+          "client_id": "415618531095-n52stt205tm62kk97jf0cg99mlliaasq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh6DQSle0sovOkE4iJ6rOHs3EaN9gY0qI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
